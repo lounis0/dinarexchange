@@ -1,0 +1,9 @@
+{
+  "version": "1.0.2",
+  "build": 2,
+  "changes": [
+    "Nouvelles pages À propos avec conditions et politique",
+    "Amélioration de l'interface des paramètres",
+    "Correction du bouton d'installation"
+  ]
+}

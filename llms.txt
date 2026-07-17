@@ -1,0 +1,35 @@
+# DinarExchange
+
+> Real-time official and parallel market exchange rates for the Algerian Dinar (DZD).
+
+DinarExchange is a Progressive Web App (PWA) that provides real-time exchange rates for the Algerian Dinar, covering both the official banking rate (via Frankfurter API) and the parallel/informal market rate (Square Port-Saïd d'Alger).
+
+## Features
+
+- **Dual Market Rates**: Official (banking) rates from Frankfurter API and parallel (square) market rates side-by-side.
+- **Currency Converter**: Convert any currency to DZD and vice-versa using either official or parallel rates.
+- **Historical Charts**: 7-day, 30-day, and 90-day rate history with interactive canvas charts.
+- **Favorites System**: Star your most-used currencies for quick access.
+- **Offline-First PWA**: Works fully offline with cached data. Installable on mobile and desktop.
+- **Auto-Updates**: Built-in update mechanism that checks for new versions without losing user data.
+
+## Tech Stack
+
+- Vanilla JavaScript (ES Modules, no framework)
+- CSS custom properties design system
+- Canvas API for charts
+- Service Worker for offline caching
+- LocalStorage for user preferences
+
+## Tracked Currencies
+
+USD, EUR, GBP, CHF, CAD, AED, SAR, CNY, TRY, TND, MAD, JPY
+
+## API Sources
+
+- **Official rates**: [Frankfurter API](https://www.frankfurter.app/) (European Central Bank data)
+- **Parallel rates**: Local `parallel.json` (Square Port-Saïd estimates)
+
+## Developer
+
+Built by **LOUNIS NAIT BELKACEM** 🇩🇿

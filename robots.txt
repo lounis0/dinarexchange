@@ -1,0 +1,33 @@
+# DinarExchange Robots.txt
+# https://dinarexchange.vercel.app
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dinarexchange.vercel.app/sitemap.xml
+
+# AI Crawlers
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: CCBot
+Allow: /
