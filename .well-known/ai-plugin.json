@@ -1,0 +1,17 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "DinarExchange",
+  "name_for_model": "dinar_exchange",
+  "description_for_human": "Real-time official and parallel market exchange rates for the Algerian Dinar (DZD).",
+  "description_for_model": "DinarExchange is a Progressive Web App that displays real-time exchange rates for the Algerian Dinar. It shows both the official banking rate sourced from the Frankfurter API (European Central Bank data) and the parallel/informal market rate from Square Port-Saïd d'Alger. Users can convert currencies, view historical charts, and save favorites. The app works fully offline as a PWA. Tracked currencies include USD, EUR, GBP, CHF, CAD, AED, SAR, CNY, TRY, TND, MAD, JPY.",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "static",
+    "url": "https://dinarexchange.vercel.app/"
+  },
+  "logo_url": "https://dinarexchange.vercel.app/icons/icon-512.png",
+  "contact_email": "",
+  "legal_info_url": "https://dinarexchange.vercel.app/#/legal"
+}
