@@ -1,23 +1,18 @@
-# DinarExchange Robots.txt
+# DinarExchange robots.txt
 # https://dinarexchange.vercel.app
 
-User-agent: *
+# Traditional search engines — always allow
+User-agent: Googlebot
 Allow: /
 
-# Sitemap
-Sitemap: https://dinarexchange.vercel.app/sitemap.xml
-
-# AI Crawlers
-User-agent: GPTBot
+User-agent: Bingbot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: Yandex
 Allow: /
 
-User-agent: anthropic-ai
-Allow: /
-
-User-agent: ClaudeBot
+# AI answer/search-time crawlers — allow (citation eligibility)
+User-agent: OAI-SearchBot
 Allow: /
 
 User-agent: ChatGPT-User
@@ -26,8 +21,33 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: Bytespider
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# AI training-only crawlers — block (opt out of model training)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Google-Extended
 Disallow: /
 
 User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+# Default — allow everything except internal paths
+User-agent: *
 Allow: /
+
+Sitemap: https://dinarexchange.vercel.app/sitemap.xml

@@ -832,6 +832,91 @@ export function renderAbout(container) {
         </div>
       </div>
 
+      <div class="faq-section" style="margin-top: var(--space-4); padding: 0 var(--space-2);">
+        <h2 class="h2" style="margin-bottom: var(--space-3);">Foire aux questions (FAQ)</h2>
+        
+        <div style="margin-bottom: var(--space-3);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Qu'est-ce que le taux de change officiel ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Le taux officiel est le taux de change légal fixé par la Banque d'Algérie et utilisé pour les transactions bancaires internationales. Les données sont fournies par l'API Frankfurter, basées sur la Banque Centrale Européenne.</p>
+        </div>
+
+        <div style="margin-bottom: var(--space-3);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Qu'est-ce que le taux parallèle et pourquoi diffère-t-il ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Le taux de change parallèle (ou informel) est le taux pratiqué sur le marché libre, comme au Square Port-Saïd d'Alger. Il diffère du taux officiel en raison de la loi de l'offre et de la demande et des restrictions sur l'allocation de devises étrangères.</p>
+        </div>
+
+        <div style="margin-bottom: var(--space-3);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">À quelle fréquence les taux sont-ils mis à jour ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Le taux officiel est actualisé quotidiennement via l'API Frankfurter. Le taux parallèle est mis à jour manuellement en fonction des fluctuations estimées du marché au Square.</p>
+        </div>
+
+        <div style="margin-bottom: var(--space-3);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Comment fonctionne le convertisseur ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Le convertisseur devises Algérie permet de calculer la valeur d'une devise en dinar algérien (DZD) ou inversement. Vous pouvez basculer instantanément entre le calcul sur la base du taux officiel ou du marché parallèle.</p>
+        </div>
+
+        <div style="margin-bottom: var(--space-3);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">Quelles sont les devises prises en charge ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Les devises suivies incluent l'Euro (EUR), le Dollar américain (USD), la Livre sterling (GBP), le Dollar canadien (CAD) et d'autres devises principales face au Dinar algérien (DZD).</p>
+        </div>
+
+        <div style="margin-bottom: var(--space-4);">
+          <h3 style="font-size: 15px; font-weight: 600; margin-bottom: 4px;">DinarExchange fonctionne-t-il hors-ligne ?</h3>
+          <p style="font-size: 14px; color: var(--color-text-secondary); line-height: 1.5;">Oui, DinarExchange fonctionne entièrement hors-ligne. Une fois l'application chargée, les taux sont sauvegardés sur votre appareil, vous permettant d'utiliser le convertisseur sans connexion internet.</p>
+        </div>
+      </div>
+
+      <!-- JSON-LD FAQPage -->
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "Qu'est-ce que le taux de change officiel ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le taux officiel est le taux de change légal fixé par la Banque d'Algérie et utilisé pour les transactions bancaires internationales. Les données sont fournies par l'API Frankfurter, basées sur la Banque Centrale Européenne."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Qu'est-ce que le taux parallèle et pourquoi diffère-t-il ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le taux de change parallèle (ou informel) est le taux pratiqué sur le marché libre, comme au Square Port-Saïd d'Alger. Il diffère du taux officiel en raison de la loi de l'offre et de la demande et des restrictions sur l'allocation de devises étrangères."
+          }
+        }, {
+          "@type": "Question",
+          "name": "À quelle fréquence les taux sont-ils mis à jour ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le taux officiel est actualisé quotidiennement via l'API Frankfurter. Le taux parallèle est mis à jour manuellement en fonction des fluctuations estimées du marché au Square."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Comment fonctionne le convertisseur ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le convertisseur devises Algérie permet de calculer la valeur d'une devise en dinar algérien (DZD) ou inversement. Vous pouvez basculer instantanément entre le calcul sur la base du taux officiel ou du marché parallèle."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Quelles sont les devises prises en charge ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Les devises suivies incluent l'Euro (EUR), le Dollar américain (USD), la Livre sterling (GBP), le Dollar canadien (CAD) et d'autres devises principales face au Dinar algérien (DZD)."
+          }
+        }, {
+          "@type": "Question",
+          "name": "DinarExchange fonctionne-t-il hors-ligne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, DinarExchange fonctionne entièrement hors-ligne. Une fois l'application chargée, les taux sont sauvegardés sur votre appareil, vous permettant d'utiliser le convertisseur sans connexion internet."
+          }
+        }]
+      }
+      </script>
+
       <p style="text-align: center; color: var(--color-text-secondary); font-size: 13px; margin-top: var(--space-4);">
         Fait avec ❤️ en Algérie
       </p>

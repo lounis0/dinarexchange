@@ -4,18 +4,18 @@ import { getState, setState } from './store.js';
 const FRANKFURTER_BASE = 'https://api.frankfurter.dev/v2';
 
 const CURRENCY_META = {
-  USD: { name: 'Dollar américain', flag: '<img src="assets/flags/USD.png" class="flag-icon">' },
-  EUR: { name: 'Euro', flag: '<img src="assets/flags/EUR.png" class="flag-icon">' },
-  GBP: { name: 'Livre sterling', flag: '<img src="assets/flags/GBP.png" class="flag-icon">' },
-  CHF: { name: 'Franc suisse', flag: '<img src="assets/flags/CHF.png" class="flag-icon">' },
-  CAD: { name: 'Dollar canadien', flag: '<img src="assets/flags/CAD.png" class="flag-icon">' },
-  AED: { name: 'Dirham émirati', flag: '<img src="assets/flags/AED.png" class="flag-icon">' },
-  SAR: { name: 'Riyal saoudien', flag: '<img src="assets/flags/SAR.png" class="flag-icon">' },
-  CNY: { name: 'Yuan chinois', flag: '<img src="assets/flags/CNY.png" class="flag-icon">' },
-  TRY: { name: 'Livre turque', flag: '<img src="assets/flags/TRY.png" class="flag-icon">' },
-  TND: { name: 'Dinar tunisien', flag: '<img src="assets/flags/TND.png" class="flag-icon">' },
-  MAD: { name: 'Dirham marocain', flag: '<img src="assets/flags/MAD.png" class="flag-icon">' },
-  JPY: { name: 'Yen japonais', flag: '<img src="assets/flags/JPY.png" class="flag-icon">' }
+  USD: { name: 'Dollar américain', flag: `<img src="assets/flags/USD.png" class="flag-icon" alt="Drapeau des États-Unis">` },
+  EUR: { name: 'Euro', flag: `<img src="assets/flags/EUR.png" class="flag-icon" alt="Drapeau de l'Union Européenne">` },
+  GBP: { name: 'Livre sterling', flag: `<img src="assets/flags/GBP.png" class="flag-icon" alt="Drapeau du Royaume-Uni">` },
+  CHF: { name: 'Franc suisse', flag: `<img src="assets/flags/CHF.png" class="flag-icon" alt="Drapeau de la Suisse">` },
+  CAD: { name: 'Dollar canadien', flag: `<img src="assets/flags/CAD.png" class="flag-icon" alt="Drapeau du Canada">` },
+  AED: { name: 'Dirham émirati', flag: `<img src="assets/flags/AED.png" class="flag-icon" alt="Drapeau des Émirats Arabes Unis">` },
+  SAR: { name: 'Riyal saoudien', flag: `<img src="assets/flags/SAR.png" class="flag-icon" alt="Drapeau de l'Arabie Saoudite">` },
+  CNY: { name: 'Yuan chinois', flag: `<img src="assets/flags/CNY.png" class="flag-icon" alt="Drapeau de la Chine">` },
+  TRY: { name: 'Livre turque', flag: `<img src="assets/flags/TRY.png" class="flag-icon" alt="Drapeau de la Turquie">` },
+  TND: { name: 'Dinar tunisien', flag: `<img src="assets/flags/TND.png" class="flag-icon" alt="Drapeau de la Tunisie">` },
+  MAD: { name: 'Dirham marocain', flag: `<img src="assets/flags/MAD.png" class="flag-icon" alt="Drapeau du Maroc">` },
+  JPY: { name: 'Yen japonais', flag: `<img src="assets/flags/JPY.png" class="flag-icon" alt="Drapeau du Japon">` }
 };
 
 // Safe fetch with timeout

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'dx-v1.0.0';
+const CACHE_VERSION = 'dx-v1.1.0';
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const DATA_CACHE = `${CACHE_VERSION}-data`;
 

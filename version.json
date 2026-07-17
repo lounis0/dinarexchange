@@ -1,9 +1,10 @@
 {
-  "version": "1.0.2",
-  "build": 2,
+  "version": "1.1.0",
+  "build": 3,
   "changes": [
-    "Nouvelles pages À propos avec conditions et politique",
-    "Amélioration de l'interface des paramètres",
-    "Correction du bouton d'installation"
+    "Optimisation majeure pour les moteurs de recherche (SEO)",
+    "Meilleure compatibilité avec les IA (GEO/AEO)",
+    "Ajout d'une section FAQ détaillée",
+    "Support amélioré pour le mode hors-ligne"
   ]
 }

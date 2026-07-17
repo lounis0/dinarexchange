@@ -59,28 +59,39 @@ async function handleRoute() {
 
   let showNav = true;
 
+  const baseTitle = 'DinarExchange';
+
   if (baseRoute === '#/onboarding') {
     showNav = false;
+    document.title = `Bienvenue | ${baseTitle}`;
     renderOnboarding(contentEl);
   } else if (baseRoute === '#/home') {
+    document.title = `Taux de change Algérie – Officiel & Parallèle | ${baseTitle}`;
     renderHome(contentEl);
   } else if (baseRoute.startsWith('#/detail/')) {
     showNav = false;
+    document.title = `Cours ${params} en DZD | ${baseTitle}`;
     await renderDetail(contentEl, params);
   } else if (baseRoute === '#/converter') {
+    document.title = `Convertisseur devises Algérie | ${baseTitle}`;
     renderConverter(contentEl);
   } else if (baseRoute === '#/favorites') {
+    document.title = `Favoris | ${baseTitle}`;
     renderFavorites(contentEl);
   } else if (baseRoute.startsWith('#/history/')) {
     showNav = false;
+    document.title = `Historique ${params} | ${baseTitle}`;
     await renderHistory(contentEl, params);
   } else if (baseRoute === '#/about') {
     showNav = false;
+    document.title = `À propos & FAQ | ${baseTitle}`;
     renderAbout(contentEl);
   } else if (['#/tos', '#/privacy', '#/legal', '#/dev'].includes(baseRoute)) {
     showNav = false;
+    document.title = `Informations | ${baseTitle}`;
     renderTextPage(contentEl, baseRoute);
   } else if (baseRoute === '#/settings') {
+    document.title = `Paramètres | ${baseTitle}`;
     renderSettings(contentEl);
   } else {
     window.location.hash = '#/home';
