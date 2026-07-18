@@ -56,7 +56,7 @@ export const STRINGS = {
   settings_language_ar_coming: "العربية — Bientôt",
   settings_notifications: "Notifications",
   settings_about: "À propos",
-  settings_version: "Version 1.1.0",
+  settings_version: "Version 1.1.2",
   settings_built_by: "Construit par LOUNIS",
   settings_install: "Installer l'application",
   onboarding_slide1_title: "Taux réels, en temps réel",

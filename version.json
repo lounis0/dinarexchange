@@ -1,7 +1,9 @@
 {
-  "version": "1.1.0",
-  "build": 3,
+  "version": "1.1.2",
+  "build": 5,
   "changes": [
+    "1.1.2 — Mise à jour des conditions, politique de confidentialité, logo dans la page À propos et icônes.",
+    "1.1.1 — Added step-by-step \"Add to Home Screen\" tutorial for iOS users tapping Install App.",
     "Optimisation majeure pour les moteurs de recherche (SEO)",
     "Meilleure compatibilité avec les IA (GEO/AEO)",
     "Ajout d'une section FAQ détaillée",

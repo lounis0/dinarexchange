@@ -571,6 +571,10 @@ export function renderSettings(container) {
   const state = getState();
   const s = state.settings;
 
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  const isStandalone = window.navigator.standalone === true || window.matchMedia('(display-mode: standalone)').matches;
+  const showInstallBtn = state.canInstall || window.deferredPrompt || (isIOS && !isStandalone);
+
   container.innerHTML = `
     <header class="page-header">
       <h1 class="h1">${STRINGS.nav_settings}</h1>
@@ -623,7 +627,7 @@ export function renderSettings(container) {
             <span style="font-weight: 700;">Vérifier les mises à jour</span>
           </div>
         </div>
-        ${state.canInstall || window.deferredPrompt ? `
+        ${showInstallBtn ? `
         <div class="settings-row" id="btn-install" style="cursor: pointer; background: rgba(16, 185, 129, 0.1); color: var(--color-accent);">
           <div class="row-left">
             ${icon('download', 20)}
@@ -743,11 +747,23 @@ export function renderSettings(container) {
   };
 
   // Check if installable
-  if (window.deferredPrompt || state.canInstall) {
+  if (showInstallBtn) {
     const btn = document.getElementById('btn-install');
     if (btn) {
       btn.style.display = 'flex';
       btn.onclick = async () => {
+        if (isIOS && !isStandalone) {
+          showDialog({
+            type: 'info',
+            icon: 'share',
+            title: 'Installer sur iOS',
+            message: `<div style="text-align:left; font-size:14px; line-height:1.5;">Pour installer DinarExchange :<br><br>1. Touchez l'icône <strong>Partager</strong> en bas de l'écran.<br>2. Faites défiler et touchez <strong>Sur l'écran d'accueil</strong>.<br>3. Touchez <strong>Ajouter</strong> en haut à droite.</div>`,
+            confirmText: 'Compris',
+            confirmStyle: 'confirm'
+          });
+          return;
+        }
+
         if (window.deferredPrompt) {
           window.deferredPrompt.prompt();
           const { outcome } = await window.deferredPrompt.userChoice;
@@ -772,8 +788,8 @@ export function renderAbout(container) {
 
     <div class="settings-list" style="padding-bottom: var(--space-4);">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin: var(--space-4) 0;">
-        <div style="width: 80px; height: 80px; background: var(--color-surface); border-radius: 20px; display: flex; justify-content: center; align-items: center; color: var(--color-accent); box-shadow: var(--shadow-card);">
-          ${icon('trending-up', 40)}
+        <div style="width: 80px; height: 80px; background: var(--color-surface); border-radius: 20px; display: flex; justify-content: center; align-items: center; color: var(--color-accent); box-shadow: var(--shadow-card); overflow: hidden;">
+          <img src="icons/icon-maskable.png" alt="DinarExchange Logo" style="width: 100%; height: 100%; object-fit: contain;">
         </div>
         <h2 class="h2" style="margin-top: 8px;">DinarExchange</h2>
         <span style="color: var(--color-text-secondary); font-size: 14px; font-weight: 600;">Version ${APP_VERSION}</span>
@@ -939,16 +955,19 @@ export function renderTextPage(container, route) {
       <p style="margin-bottom: 16px;"><strong>Bienvenue sur DinarExchange.</strong> En utilisant cette application, vous acceptez les présentes conditions d'utilisation.</p>
       <p style="margin-bottom: 16px;">Les taux de change affichés proviennent de l'API Frankfurter pour le marché officiel, et de sources estimatives (Square Port-Saïd) pour le marché parallèle.</p>
       <p style="margin-bottom: 16px;"><strong>Avertissement :</strong> DinarExchange est fourni à titre strictement informatif. Les taux peuvent varier et ne constituent en aucun cas un conseil financier, une incitation à l'achat ou à la vente de devises.</p>
-      <p>L'éditeur décline toute responsabilité quant à l'exactitude absolue des taux parallèles affichés, ceux-ci étant soumis à une forte volatilité.</p>
+      <p style="margin-bottom: 16px;">L'éditeur décline toute responsabilité quant à l'exactitude absolue des taux parallèles affichés, ceux-ci étant soumis à une forte volatilité.</p>
+      <p style="margin-bottom: 16px;"><strong>Analyse et suivi :</strong> Afin d'améliorer l'expérience utilisateur et les performances de l'application, nous utilisons des outils d'analyse statistiques (Microsoft Clarity, Counter.dev, et Google Search). Ces outils nous permettent d'étudier le comportement global sur l'application.</p>
+      <p><strong>Engagement de confidentialité :</strong> NOUS NE COLLECTONS AUCUNE DONNÉE PERSONNELLE ET NOUS NE VENDONS AUCUNE DONNÉE À DES TIERS. L'utilisation des outils statistiques se fait de manière totalement anonymisée.</p>
     `;
   } else if (route === '#/privacy') {
     title = "Politique de confidentialité";
     content = `
       <div style="display:flex; justify-content:center; margin-bottom: var(--space-4); color: var(--color-accent);">${icon('shield', 48)}</div>
-      <p style="margin-bottom: 16px;">Votre confidentialité est notre priorité absolue.</p>
-      <p style="margin-bottom: 16px;"><strong>Aucune collecte de données :</strong> DinarExchange ne collecte, ne stocke ni ne partage aucune donnée personnelle vous concernant.</p>
+      <p style="margin-bottom: 16px;">Votre confidentialité est notre priorité absolue. Nous sommes totalement transparents sur les données que nous traitons.</p>
+      <p style="margin-bottom: 16px;"><strong>Aucune collecte de données personnelles :</strong> DinarExchange ne collecte, ne stocke ni ne partage aucune donnée personnelle vous concernant. NOUS NE COLLECTONS AUCUNE DONNÉE PERSONNELLE ET NOUS NE VENDONS AUCUNE DONNÉE À DES TIERS.</p>
+      <p style="margin-bottom: 16px;"><strong>Suivi analytique anonyme :</strong> Nous utilisons Microsoft Clarity, Counter.dev et Google Search pour comprendre comment l'application est utilisée et identifier les éventuels bugs. Ces outils nous fournissent des statistiques globales (pages visitées, clics, performances) sans jamais vous identifier personnellement.</p>
       <p style="margin-bottom: 16px;"><strong>Stockage local :</strong> Toutes vos préférences, y compris vos favoris, la langue et le thème, sont stockées localement sur votre appareil (via LocalStorage).</p>
-      <p><strong>Réseau :</strong> Les requêtes vers les API de taux de change sont totalement anonymes.</p>
+      <p><strong>Réseau :</strong> Les requêtes vers les API de taux de change sont totalement anonymisées.</p>
     `;
   } else if (route === '#/legal') {
     title = "Mentions légales";
@@ -956,6 +975,7 @@ export function renderTextPage(container, route) {
       <div style="display:flex; justify-content:center; margin-bottom: var(--space-4); color: var(--color-accent);">${icon('info', 48)}</div>
       <p style="margin-bottom: 16px;"><strong>Éditeur de l'application :</strong> LOUNIS NAIT BELKACEM</p>
       <p style="margin-bottom: 16px;"><strong>Hébergement et API :</strong> L'application est un projet web statique (PWA). Les données du marché officiel sont fournies gracieusement par <em>Frankfurter API</em> (Projet Open Source).</p>
+      <p style="margin-bottom: 16px;"><strong>Outils tiers :</strong> Nous intégrons des services d'analyse tiers (Microsoft Clarity, Counter.dev, Google Search) pour le suivi des performances et de l'audience. Ces services sont configurés pour respecter la confidentialité des utilisateurs. Nous réitérons que NOUS NE COLLECTONS AUCUNE DONNÉE PERSONNELLE ET NE VENDONS AUCUNE DONNÉE À DES TIERS.</p>
       <p style="margin-bottom: 16px;"><strong>Licence :</strong> DinarExchange est un outil à usage personnel. Toute reproduction partielle ou totale du design ou du code à des fins commerciales sans autorisation est strictement interdite.</p>
     `;
   } else if (route === '#/dev') {
